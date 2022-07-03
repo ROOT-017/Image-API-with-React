@@ -8,10 +8,9 @@ import ImageList from "./imageList";
 class App extends React.Component {
   state = { images: [] };
 
-  onSearchSubmit = async  (term) => { 
+  onSearchSubmit = async (term) => {
     const response = await unsplash.get("/search/photos", {
       params: { query: term },
-      
     });
     //second method for fetching data
     //   .then((response) => {
@@ -24,12 +23,11 @@ class App extends React.Component {
     return (
       <div className="ui container" style={{ marginTop: "10px" }}>
         <SearchBar onSubmit={this.onSearchSubmit} />
-        Found:{this.state.images.length} images
+        Found:{this.state.images.length}Images
         <ImageList images={this.state.images} />
       </div>
     );
   }
-  
 }
 
 export default App;
